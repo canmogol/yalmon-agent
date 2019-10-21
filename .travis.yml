@@ -1,0 +1,21 @@
+language: java
+sudo: false # faster builds
+
+jdk:
+    - openjdk8
+
+addons:
+    sonarcloud:
+        organization: "canmogol-github"
+        token:
+            secure: "Yw0P5cXUmpSCo2DmFUoET14j+DX9wRMiBYVRreeLhp0Smoq9l/mBbE8gDrGXXuQkXSlsLu7PuIWJsV3cBTsGQge2pEZssjykP61dNZyC5DSbjZYU7oC1WdOOK8x0LAzTXHN9mKwEMJyI/G5CCiz2h2q8EXbTzOI8EIvlY4OiDXwPl5M5NeaDZLIrhcL2E52Vyrp/ZxB9bKXe2PcxJkNk0ClNCpIVbGHRkSf1nX6/9jmKBrcK6PTVdtqnj9n98ip8dX8rLOD0GeDufHf+ku+xSELqr67MzdF86CZJiUH6NDnRqo+UcMrfNVkukz8zrP6wNKo7X+2Uphyxa4O+l2bACFiT9b0KLZCAqFsY3SWGy2H+V374OYffhiAGf66NLOAWSo9HCd1+3w51eG/4OBivqgHz9dPHk6gAHF/0Kn27zDNO5l864n6bUqLmDS9DYCgKoVPmbd5s7R6EbYRgsLiXVQucPcQnhUCP6uVZxe8UEy1FY2j1ENhTDLE/QQMkhKsHwHF/mXFTcbtKDAzKZeO2dSCxDgjxDaIshuEOAzavkC389n2YGyFX37FJoVT54Pm7VjQk0kjpDmfmw9OEZI1PsFZPsOlDKmRsYVUtOXaKsBVz0Tjt+iLXBdipGBptOUVG51F6BVjo/PIlDS2kozWuTvmbqi1notjuErKHFPr700M="
+
+cache:
+    directories:
+        - $HOME/.m2
+
+install: true
+
+script:
+    - mvn clean install
+    - mvn sonar:sonar
