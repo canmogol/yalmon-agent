@@ -29,16 +29,16 @@ public interface CommandRunnerFactory {
      *
      * @param shell requested shell implementation, such as 'bash'
      * @return Command runner factory.
-     * @throws Exception if the given shell is not known.
+     * @throws CommandRunnerCreationException if the given shell is not known.
      */
-    static CommandRunnerFactory createFactory(final String shell) throws Exception {
+    static CommandRunnerFactory createFactory(final String shell) throws CommandRunnerCreationException {
         if (Objects.isNull(shell) || shell.trim().isEmpty()) {
-            throw new Exception("shell name cannot be null or empty");
+            throw new CommandRunnerCreationException("shell name cannot be null or empty");
         } else if (BASH.equals(shell)) {
             return new BashCommandRunnerFactory();
         } else {
             final String error = String.format("Unknown shell %s", shell);
-            throw new Exception(error);
+            throw new CommandRunnerCreationException(error);
         }
     }
 
