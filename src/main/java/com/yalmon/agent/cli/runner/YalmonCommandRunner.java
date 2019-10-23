@@ -28,6 +28,7 @@ public class YalmonCommandRunner implements CommandLineRunner {
         if (Objects.isNull(args)) {
             throw new NullPointerException("args cannot be null");
         }
+        // read commands
     }
 
 }

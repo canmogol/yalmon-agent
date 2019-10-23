@@ -45,7 +45,7 @@ class CommandRunnerFactoryTest {
 
     @Test
     void testShouldReturnBashCommandRunnerFactoryWhenCreateFactoryCalledWithParameterBash() throws Exception {
-        final CommandRunnerFactory actualFactory = CommandRunnerFactory.createFactory(CommandRunnerFactory.BASH);
+        final CommandRunnerFactory actualFactory = CommandRunnerFactory.createFactory(ShellTypes.BASH.getValue());
         String error = "bash command factory should be returned when called with parameter 'bash'";
         assertEquals(BashCommandRunnerFactory.class, actualFactory.getClass(), error);
     }

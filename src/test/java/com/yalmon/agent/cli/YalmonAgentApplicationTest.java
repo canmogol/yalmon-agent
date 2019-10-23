@@ -1,5 +1,7 @@
 package com.yalmon.agent.cli;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 import org.junit.jupiter.api.Test;
 
 /**
@@ -14,6 +16,6 @@ class YalmonAgentApplicationTest {
      */
     @Test
     void testShouldExecuteTheMainMethod() {
-        YalmonAgentApplication.main(EMPTY_ARGS);
+        assertDoesNotThrow(() -> YalmonAgentApplication.main(EMPTY_ARGS));
     }
 }

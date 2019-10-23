@@ -28,13 +28,13 @@ class DistributionFinderTest {
     void testShouldThrowExceptionWhenNullOutputGiven() {
         val exception = assertThrows(Exception.class,
             () -> finder.find(null));
-        assertEquals("output cannot be null or empty", exception.getMessage());
+        assertEquals("could not parse and find the distribution, parse content cannot be null or empty", exception.getMessage());
     }
     @Test
     void testShouldThrowExceptionWhenEmptyOutputGiven() {
         val exception = assertThrows(Exception.class,
             () -> finder.find(null));
-        assertEquals("output cannot be null or empty", exception.getMessage());
+        assertEquals("could not parse and find the distribution, parse content cannot be null or empty", exception.getMessage());
     }
 
     @Test

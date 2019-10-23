@@ -15,14 +15,14 @@ public class DistributionFinder {
      *
      * @param output release key value entries.
      * @return distribution id.
-     * @throws Exception when the output is null or empty.
+     * @throws DistributionFindException when the output is null or empty.
      */
-    public final String find(final String output) throws Exception {
+    public final String find(final String output) throws DistributionFindException {
         if (Objects.isNull(output) || output.trim().isEmpty()) {
-            throw new Exception("output cannot be null or empty");
+            throw new DistributionFindException(
+                    "could not parse and find the distribution, parse content cannot be null or empty");
         }
-        String distribution = getDistributionName(output);
-        return trimDistribution(distribution);
+        return getDistributionName(output);
     }
 
     private String getDistributionName(final String output) {
@@ -30,11 +30,12 @@ public class DistributionFinder {
             .map(String::trim)
             .filter(line -> line.startsWith(KEY_ID))
             .map(line -> line.substring(KEY_ID.length()))
+            .map(distributionName -> trim(distributionName))
             .findFirst()
             .orElseThrow(() -> new RuntimeException("could not find the distribution"));
     }
 
-    private String trimDistribution(final String distribution) {
+    private String trim(final String distribution) {
         String dist = distribution;
         if (dist.startsWith("\"")) {
             dist = dist.substring(1);

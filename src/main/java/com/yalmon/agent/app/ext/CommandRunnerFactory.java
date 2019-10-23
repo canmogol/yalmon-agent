@@ -10,18 +10,14 @@ import java.util.Objects;
 public interface CommandRunnerFactory {
 
     /**
-     * Bourne again shell.
-     */
-    String BASH = "bash";
-
-    /**
      * Creates the default command runner factory.
      *
      * @return Command runner factory.
-     * @throws Exception when there is no implementation found for the default shell.
+     * @throws Exception when there is no implementation found for the default
+     *                   shell.
      */
     static CommandRunnerFactory createFactory() throws Exception {
-        return CommandRunnerFactory.createFactory(BASH);
+        return CommandRunnerFactory.createFactory(ShellTypes.getDefault());
     }
 
     /**
@@ -34,7 +30,7 @@ public interface CommandRunnerFactory {
     static CommandRunnerFactory createFactory(final String shell) throws CommandRunnerCreationException {
         if (Objects.isNull(shell) || shell.trim().isEmpty()) {
             throw new CommandRunnerCreationException("shell name cannot be null or empty");
-        } else if (BASH.equals(shell)) {
+        } else if (ShellTypes.BASH.getValue().equals(shell)) {
             return new BashCommandRunnerFactory();
         } else {
             final String error = String.format("Unknown shell %s", shell);

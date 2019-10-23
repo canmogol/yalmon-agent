@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class YalmonCommandRunnerTest {
 
     private YalmonCommandRunner yalmonCommandRunner;
-    private String[] EMPTY_STRING_ARRAY = new String[]{};
+    private String[] EMPTY_STRING_ARRAY = new String[] {};
 
     @BeforeEach
     void setUp() {
@@ -30,8 +30,7 @@ class YalmonCommandRunnerTest {
     @Test
     void testShouldThrowExceptionWhenArgsIsNull() {
         String[] args = null;
-        val exception = assertThrows(NullPointerException.class,
-            () -> yalmonCommandRunner.run(args));
+        val exception = assertThrows(NullPointerException.class, () -> yalmonCommandRunner.run(args));
         assertEquals("args cannot be null", exception.getMessage());
     }
 
@@ -42,8 +41,7 @@ class YalmonCommandRunnerTest {
 
     @Test
     void testShouldRunListCommand() throws Exception {
-        yalmonCommandRunner.run(EMPTY_STRING_ARRAY);
+        yalmonCommandRunner.run("ls");
     }
-
 
 }
