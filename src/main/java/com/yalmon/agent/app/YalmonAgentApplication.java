@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import com.yalmon.agent.app.ext.commandrunner.CommandRunner;
 import com.yalmon.agent.app.ext.parser.OutputParser;
+import com.yalmon.agent.app.ext.parser.OutputParserException;
 import com.yalmon.agent.app.ext.provider.CommandListProvider;
 import com.yalmon.agent.app.ext.provider.CommandListProviderException;
 import lombok.val;
@@ -45,7 +46,7 @@ public class YalmonAgentApplication {
      */
     public void start() throws YalmonAgentApplicationException {
         val releaseCommandOutput = this.executeCommand(runner, releaseCommand);
-        val distributionName = this.findDistributionName(releaseCommandOutput);
+        val distributionName = this.findDistributionName(releaseCommandOutput, finder);
         this.getListOfCommands(distributionName, provider);
         // execute commands
         // prepare output
@@ -94,16 +95,18 @@ public class YalmonAgentApplication {
      * Parses the find-release-command output and returns the distribution name.
      *
      * @param releaseCommandOutput command's output to parse.
+     * @param distributionFinder distribution finder, parses output to find distro name.
      * @return release name.
      * @throws YalmonAgentApplicationException when cannot find the distribution name.
      */
-    final String findDistributionName(final String releaseCommandOutput) throws YalmonAgentApplicationException {
+    final String findDistributionName(final String releaseCommandOutput, final OutputParser distributionFinder)
+        throws YalmonAgentApplicationException {
         if (isNullOrEmpty(releaseCommandOutput)) {
             throw new YalmonAgentApplicationException("release command output cannot be null or empty");
         }
         try {
-            return finder.parse(releaseCommandOutput);
-        } catch (Exception e) {
+            return distributionFinder.parse(releaseCommandOutput);
+        } catch (OutputParserException e) {
             throw new YalmonAgentApplicationException(e.getMessage());
         }
     }

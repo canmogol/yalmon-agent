@@ -18,6 +18,7 @@ import org.mockito.MockitoAnnotations;
 
 import com.yalmon.agent.app.ext.commandrunner.CommandRunner;
 import com.yalmon.agent.app.ext.parser.OutputParser;
+import com.yalmon.agent.app.ext.parser.OutputParserException;
 import com.yalmon.agent.app.ext.provider.CommandListProvider;
 import com.yalmon.agent.app.ext.provider.CommandListProviderException;
 import lombok.val;
@@ -50,7 +51,7 @@ class YalmonAgentApplicationTest {
     void testShouldThrowExceptionWhenNullContentProvided() {
         String nullContent = null;
         val exception = assertThrows(YalmonAgentApplicationException.class,
-            () -> yalmonAgentApplication.findDistributionName(nullContent));
+            () -> yalmonAgentApplication.findDistributionName(nullContent, parser));
         assertEquals("release command output cannot be null or empty", exception.getMessage());
     }
 
@@ -58,8 +59,18 @@ class YalmonAgentApplicationTest {
     void testShouldThrowExceptionWhenEmptyContentProvided() {
         String emptyContent = "";
         val exception = assertThrows(YalmonAgentApplicationException.class,
-            () -> yalmonAgentApplication.findDistributionName(emptyContent));
+            () -> yalmonAgentApplication.findDistributionName(emptyContent, parser));
         assertEquals("release command output cannot be null or empty", exception.getMessage());
+    }
+
+    @Test
+    void testShouldThrowExceptionWhenParseErrorOccurs() throws OutputParserException {
+        val nonNullContent = "this-is-non-null-content";
+        val expectedError = "expected-error-message";
+        Mockito.when(parser.parse(nonNullContent)).thenThrow(new OutputParserException(expectedError));
+        val exception = assertThrows(YalmonAgentApplicationException.class,
+            () -> yalmonAgentApplication.findDistributionName(nonNullContent, parser));
+        assertEquals(expectedError, exception.getMessage());
     }
 
     @Test
@@ -76,6 +87,15 @@ class YalmonAgentApplicationTest {
         YalmonAgentApplicationException exception = assertThrows(YalmonAgentApplicationException.class,
             () -> yalmonAgentApplication.executeCommand(runner, emptyReleaseCommand));
         assertEquals("release command cannot be null or empty", exception.getMessage());
+    }
+
+    @Test
+    void testShouldThrowExceptionWhenNullCommandRunnerProvided() {
+        val nullReleaseCommand = "non-null-release-command";
+        final CommandRunner nullRunner = null;
+        YalmonAgentApplicationException exception = assertThrows(YalmonAgentApplicationException.class,
+            () -> yalmonAgentApplication.executeCommand(nullRunner, nullReleaseCommand));
+        assertEquals("command runner cannot be null", exception.getMessage());
     }
 
     @Test

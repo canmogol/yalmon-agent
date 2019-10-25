@@ -10,8 +10,8 @@ public interface OutputParser {
      *
      * @param output command's output.
      * @return parsed content.
-     * @throws Exception on parse error.
+     * @throws OutputParserException on parse error.
      */
-    String parse(String output) throws Exception;
+    String parse(String output) throws OutputParserException;
 
 }
