@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Yalmon agent entry class.
  */
 @SpringBootApplication(proxyBeanMethods = false)
-public class YalmonAgentApplication {
+public class YalmonAgentSpringBootApplication {
 
     /**
      * Entry point method.
@@ -15,7 +15,7 @@ public class YalmonAgentApplication {
      * @param args command line arguments.
      */
     public static void main(final String[] args) {
-        SpringApplication.run(YalmonAgentApplication.class, args);
+        SpringApplication.run(YalmonAgentSpringBootApplication.class, args);
     }
 
 }

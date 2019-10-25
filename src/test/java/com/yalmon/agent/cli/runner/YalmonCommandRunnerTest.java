@@ -1,26 +1,26 @@
 package com.yalmon.agent.cli.runner;
 
-import com.yalmon.agent.app.impl.shell.BashCommandRunner;
-import lombok.val;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import lombok.val;
+
 /**
  * Yalmon agent command runner test.
  */
-class YalmonCommandRunnerTest {
+class YalmonCommandLineRunnerTest {
 
-    private YalmonCommandRunner yalmonCommandRunner;
+    private YalmonCommandLineRunner YalmonCommandLineRunner;
     private String[] EMPTY_STRING_ARRAY = new String[] {};
 
     @BeforeEach
     void setUp() {
-        yalmonCommandRunner = new YalmonCommandRunner(new BashCommandRunner());
+        YalmonCommandLineRunner = new YalmonCommandLineRunner();
     }
 
     @AfterEach
@@ -30,18 +30,13 @@ class YalmonCommandRunnerTest {
     @Test
     void testShouldThrowExceptionWhenArgsIsNull() {
         String[] args = null;
-        val exception = assertThrows(NullPointerException.class, () -> yalmonCommandRunner.run(args));
+        val exception = assertThrows(NullPointerException.class, () -> YalmonCommandLineRunner.run(args));
         assertEquals("args cannot be null", exception.getMessage());
     }
 
     @Test
     void testShouldNotThrowExceptionWhenArgsIsEmpty() {
-        assertDoesNotThrow(() -> yalmonCommandRunner.run(EMPTY_STRING_ARRAY));
-    }
-
-    @Test
-    void testShouldRunListCommand() throws Exception {
-        yalmonCommandRunner.run("ls");
+        assertDoesNotThrow(() -> YalmonCommandLineRunner.run(EMPTY_STRING_ARRAY));
     }
 
 }

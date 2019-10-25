@@ -1,13 +1,13 @@
 package com.yalmon.agent.app.impl.shell;
 
-import com.yalmon.agent.app.ext.CommandRunner;
-import lombok.val;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
+
+import com.yalmon.agent.app.ext.commandrunner.CommandRunner;
+import lombok.val;
 
 /**
  * Abstract shell command runner.

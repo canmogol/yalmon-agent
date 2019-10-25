@@ -1,13 +1,14 @@
 package com.yalmon.agent.app.impl.shell;
 
-import com.yalmon.agent.app.ext.CommandRunner;
-import lombok.val;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import org.junit.jupiter.api.Test;
+
+import com.yalmon.agent.app.ext.commandrunner.CommandRunner;
+import lombok.val;
 
 /**
  * Abstract shell command runner test.

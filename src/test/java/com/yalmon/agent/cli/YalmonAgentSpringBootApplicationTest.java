@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Spring boot application entry point test.
  */
-class YalmonAgentApplicationTest {
+class YalmonAgentSpringBootApplicationTest {
 
     private static final String[] EMPTY_ARGS = {};
 
@@ -16,6 +16,6 @@ class YalmonAgentApplicationTest {
      */
     @Test
     void testShouldExecuteTheMainMethod() {
-        assertDoesNotThrow(() -> YalmonAgentApplication.main(EMPTY_ARGS));
+        assertDoesNotThrow(() -> YalmonAgentSpringBootApplication.main(EMPTY_ARGS));
     }
 }

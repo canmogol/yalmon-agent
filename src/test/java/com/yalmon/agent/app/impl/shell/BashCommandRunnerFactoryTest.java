@@ -1,4 +1,4 @@
-package com.yalmon.agent.app.impl;
+package com.yalmon.agent.app.impl.shell;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.yalmon.agent.app.ext.commandrunner.CommandRunner;
-import com.yalmon.agent.app.impl.shell.BashCommandRunner;
 
 /**
  * Bash command runner factory test.

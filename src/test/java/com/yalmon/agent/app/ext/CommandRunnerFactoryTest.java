@@ -1,13 +1,16 @@
 package com.yalmon.agent.app.ext;
 
-import com.yalmon.agent.app.impl.BashCommandRunnerFactory;
-import lombok.val;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.ThrowingSupplier;
-
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.ThrowingSupplier;
+
+import com.yalmon.agent.app.impl.BashCommandRunnerFactory;
+import com.yalmon.agent.app.impl.commandrunner.CommandRunnerFactory;
+import com.yalmon.agent.app.impl.commandrunner.ShellTypes;
+import lombok.val;
 
 /**
  * Command runner factory default/static methods tests.
@@ -19,7 +22,7 @@ class CommandRunnerFactoryTest {
 
     @Test
     void testShouldNotThrowExceptionWhenCreateFactoryCalledWithoutAnyParameters() {
-        assertDoesNotThrow((ThrowingSupplier<CommandRunnerFactory>) CommandRunnerFactory::createFactory);
+        assertDoesNotThrow((ThrowingSupplier<CommandRunnerFactory>)CommandRunnerFactory::createFactory);
     }
 
     @Test
@@ -31,15 +34,13 @@ class CommandRunnerFactoryTest {
 
     @Test
     void testShouldThrowExceptionWhenNullParameterPassedAsShellName() {
-        val exception = assertThrows(Exception.class,
-            () -> CommandRunnerFactory.createFactory(null));
+        val exception = assertThrows(Exception.class, () -> CommandRunnerFactory.createFactory(null));
         assertEquals("shell name cannot be null or empty", exception.getMessage());
     }
 
     @Test
     void testShouldThrowExceptionWhenEmptyStringPassedAsShellName() {
-        val exception = assertThrows(Exception.class,
-            () -> CommandRunnerFactory.createFactory(EMPTY_STRING));
+        val exception = assertThrows(Exception.class, () -> CommandRunnerFactory.createFactory(EMPTY_STRING));
         assertEquals("shell name cannot be null or empty", exception.getMessage());
     }
 
@@ -52,8 +53,7 @@ class CommandRunnerFactoryTest {
 
     @Test
     void testShouldThrowExceptionWhenUnknownShellNamePassed() {
-        val exception = assertThrows(Exception.class,
-            () -> CommandRunnerFactory.createFactory(UNKNOWN_SHELL_NAME));
+        val exception = assertThrows(Exception.class, () -> CommandRunnerFactory.createFactory(UNKNOWN_SHELL_NAME));
         final String error = String.format("Unknown shell %s", UNKNOWN_SHELL_NAME);
         assertEquals(error, exception.getMessage());
     }

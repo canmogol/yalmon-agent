@@ -1,21 +1,19 @@
 package com.yalmon.agent.cli.runner;
 
-import com.yalmon.agent.app.ext.CommandRunner;
-import lombok.RequiredArgsConstructor;
+import java.util.Objects;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.Objects;
+import lombok.RequiredArgsConstructor;
 
 /**
  * Yalmon command line entry class.
  */
 @Component
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class YalmonCommandRunner implements CommandLineRunner {
-
-    private final CommandRunner runner;
+public class YalmonCommandLineRunner implements CommandLineRunner {
 
     /**
      * Yalmon command line entry method.
@@ -28,7 +26,7 @@ public class YalmonCommandRunner implements CommandLineRunner {
         if (Objects.isNull(args)) {
             throw new NullPointerException("args cannot be null");
         }
-        // read commands
+        // run application
     }
 
 }

@@ -1,8 +1,7 @@
-package com.yalmon.agent.app.impl;
+package com.yalmon.agent.app.impl.shell;
 
 import com.yalmon.agent.app.ext.commandrunner.CommandRunner;
 import com.yalmon.agent.app.impl.commandrunner.CommandRunnerFactory;
-import com.yalmon.agent.app.impl.shell.BashCommandRunner;
 
 /**
  * Bash Command Runner Factory.

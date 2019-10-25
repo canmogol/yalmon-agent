@@ -1,8 +1,9 @@
 package com.yalmon.agent.app.impl.shell;
 
-import com.yalmon.agent.app.ext.CommandRunner;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+
+import com.yalmon.agent.app.ext.commandrunner.CommandRunner;
 
 /**
  * Bash Command Runner Test.

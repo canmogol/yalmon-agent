@@ -1,4 +1,4 @@
-package com.yalmon.agent.app.ext;
+package com.yalmon.agent.app.impl.commandrunner;
 
 /**
  * Shell types.
@@ -19,21 +19,21 @@ public enum ShellTypes {
     }
 
     /**
-     * Returns the value of the enum.
-     *
-     * @return shell name.
-     */
-    public String getValue() {
-        return value;
-    }
-
-    /**
      * Returns default shell's name.
      *
      * @return shell name.
      */
     public static String getDefault() {
         return BASH.getValue();
+    }
+
+    /**
+     * Returns the value of the enum.
+     *
+     * @return shell name.
+     */
+    public String getValue() {
+        return value;
     }
 
 }

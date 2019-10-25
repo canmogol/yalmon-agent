@@ -9,7 +9,7 @@ addons:
         organization: "canmogol-github"
         token:
             secure: "FkmIke4eyble9bkCi7AvLmvTN77i83cOnL/lBbo6IazTONBmC2D4tf9tgsNgIhnKlCcfIRbpH3ASQKOMrj7j3g13AMXeiBd7WT5+onvLdBI0zbeen+9ZKHkVJ/Qq6Q28jS7iZqS1gUKvjKPMWpv3e/XYId5tUpmCM5PqmDARFjW8T6ah94X9m6o8B0vS/zUzocrxihTm+YUr27mTiBr+mVrININKTuPcz8I3kHy5mD/PYRc6Zmt/kJ5gLM0IXnu7x3U7npf/vFPGgNMZiIH3xZ1r/LprOX5uidCeR5f22GHXDLcKAd3ah2iIEw+r/yGyqPzTkLUjLRIq/zAMM2LqX5R7CoWi9BUFXLnGL501wkG5XrowJQuJUMxElRV52Vci9R8OQ4VDgkSYZHP1K6FN+txDMlYnfVf+b8wcwRkyrzwW/f9Ic7Qfu3RMyyvYZPc+KePhLVCXPOBvtnDYU8PT30JDkeOmolPbAVsEw+R0tRVNzUD+5NGVOXU/V0VTqicYlI2z/K3bodBKH93fjTMmmjv8SgtF6RZUDveO6no/obqRp9VFwHrgy9y9RXnIrkfwgDl1dFYUGCbRITgt75iNSrqbg+zfdDum8h/QoDCiTsTBIRW4hbwn7tK91GWFwFsjDuuW76T7BSTxOYnuLYBa1iW0LOpzDETKxSlTH6rohlg="
-            
+
 cache:
     directories:
         - $HOME/.m2
