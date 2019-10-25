@@ -9,7 +9,7 @@ Yet Another Linux MONitor Agent.
 - [Lombok](https://projectlombok.org/)
 - [Maven](https://maven.apache.org/)
 - [Travis](https://travis-ci.org/)  [![Build Status](https://travis-ci.org/canmogol/yalmon-agent.svg?branch=master)](https://travis-ci.org/canmogol/yalmon-agent)
-- [SonarQube](https://sonarcloud.io/dashboard?id=dev.canm%3Ayalmon-agent) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=dev.canm%3Ayalmon-agent&metric=alert_status)](https://sonarcloud.io/dashboard?id=dev.canm%3Ayalmon-agent)
+- [SonarQube](https://sonarcloud.io/dashboard?id=com.yalmon%3Ayalmon-agent) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=dev.canm%3Ayalmon-agent&metric=alert_status)](https://sonarcloud.io/dashboard?id=dev.canm%3Ayalmon-agent)
 - [Java8](https://openjdk.java.net/install/)
 
 ### Getting Started
