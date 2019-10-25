@@ -40,7 +40,7 @@
         <version.maven-failsafe-plugin>2.22.0</version.maven-failsafe-plugin>
         <!-- dependency versions -->
         <version.spring-graal-feature>-cd2a3ebe15-1</version.spring-graal-feature>
-        <version.checkstyle>8.18</version.checkstyle>
+        <version.checkstyle>8.25</version.checkstyle>
     </properties>
 
     <dependencies>
