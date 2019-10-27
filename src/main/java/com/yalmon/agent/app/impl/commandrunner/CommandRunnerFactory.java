@@ -14,10 +14,10 @@ public interface CommandRunnerFactory {
      * Creates the default command runner factory.
      *
      * @return Command runner factory.
-     * @throws Exception when there is no implementation found for the default
+     * @throws CommandRunnerException when there is no implementation found for the default
      * shell.
      */
-    static CommandRunnerFactory createFactory() throws Exception {
+    static CommandRunnerFactory createFactory() throws CommandRunnerException {
         return CommandRunnerFactory.createFactory(ShellTypes.getDefault());
     }
 
