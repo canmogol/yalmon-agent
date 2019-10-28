@@ -90,6 +90,19 @@ class YamlFileCommandListProviderTest {
         assertTrue(expected.values().containsAll(actual.values()), "all the commands from file should be returned.");
     }
 
+    @Test
+    void testShouldThrowExceptionWhenMalformattedCommandFileProvided() {
+        val nonExistingDistributionName = "malformatted-command-file";
+        val propertiesFileName = String.format("%s.commands.properties", nonExistingDistributionName);
+        final String expectedErrorMessage =
+            String.format("could not read commands from file: %s, error:", propertiesFileName);
+
+        val exception = assertThrows(CommandListProviderException.class,
+            () -> yamlFileCommandListProvider.getCommands(nonExistingDistributionName));
+
+        assertTrue(exception.getMessage().startsWith(expectedErrorMessage));
+    }
+
     private Properties getPropertiesForDistroFromFile(String distributionName) throws IOException, URISyntaxException {
         Properties ubuntuCommands = new Properties();
         val propertiesFileName = String.format("%s.commands.properties", distributionName);
