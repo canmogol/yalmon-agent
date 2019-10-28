@@ -49,7 +49,7 @@ public class YamlFileCommandListProvider implements CommandListProvider {
         throws CommandListProviderException {
         try {
             return readCommandsFromResource(resource);
-        } catch (IOException | URISyntaxException e) {
+        } catch (IllegalArgumentException | IOException | URISyntaxException e) {
             val error =
                 String.format("could not read commands from file: %s, error: %s", propertiesFileName, e.getMessage());
             throw new CommandListProviderException(error);
