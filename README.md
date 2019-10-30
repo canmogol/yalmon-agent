@@ -12,8 +12,8 @@ Yet Another Linux MONitor Agent.
 
 - [Travis](https://travis-ci.org/) [![Build Status](https://travis-ci.org/canmogol/yalmon-agent.svg?branch=master)](https://travis-ci.org/canmogol/yalmon-agent)
 - [SonarQube](https://sonarcloud.io/dashboard?id=com.yalmon%3Ayalmon-agent) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.yalmon%3Ayalmon-agent&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.yalmon%3Ayalmon-agent)
-- [Mergify](https://mergify.io)  [![Mergify Status](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/canmogol/yalmon-agent&style=flat)](https://mergify.io)
-
+- [Mergify](https://mergify.io) [![Mergify Status](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/canmogol/yalmon-agent&style=flat)](https://mergify.io)
+- [Better Code Hub](https://bettercodehub.com) [![BCH compliance](https://bettercodehub.com/edge/badge/canmogol/yalmon-agent?branch=master)](https://bettercodehub.com/)
 
 ### Getting Started
 
