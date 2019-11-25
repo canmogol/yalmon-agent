@@ -35,6 +35,44 @@ By running `clean install` gaol, maven will install the artifact to the .m2 fold
 under the home directory. You will also find the executable `Jar` file under the
 `target` folder which you may run with the `java -jar JarFileName.jar` command.
 
+### Native Image Compilation
+
+You need GraalVM to compile JAR file to native code, 
+an easy way to install GraalVM is to use `sdk` tool.
+
+```bash
+# installs sdk command line tool  
+curl -s "https://get.sdkman.io" | bash
+```
+
+You can install and use GraalVM using `sdk` tool.
+
+```bash
+# find all the available Java versions
+sdk list java
+# chose a GraalVM version, such as 19.2.1-grl
+# should download and install GraalVM
+sdk install java 19.2.1-grl
+# switch to GraalVM Java
+sdk use java 19.2.1-grl
+# should install "Native Image" component
+gu install native-image
+```
+
+You can build the native executable using maven 'graal' profile.
+
+```bash
+# maven should build the graal profile which is  
+mvn clean package -Pgraal
+```
+
+Executable will be under the `target` folder with the `yalmon` name, 
+you can run the executable just like any executable. 
+
+```bash
+# within the target folder
+./yalmon
+```
 
 ### Contributing
 Contributions are what make the open source community such an amazing place to be learn,
